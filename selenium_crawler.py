@@ -16,7 +16,7 @@ from lxml import html
 
 def start():
     driver = webdriver.Chrome()
-    # driver.implicitly_wait(10)
+    driver.implicitly_wait(10)
     driver.get("http://music.163.com/#/discover/playlist")
     # try:
         # element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'g-bd')))
