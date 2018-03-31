@@ -16,21 +16,12 @@ from lxml import html
 
 def start():
     driver = webdriver.Chrome()
-    driver.implicitly_wait(10)
     driver.get("http://music.163.com/#/discover/playlist")
-    # try:
-        # element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'g-bd')))
-    #     driver.implicitly_wait(10)
-    # except Exception as e:
-    #     print(e)
-    # finally:
-    #     driver.quit()
     print(driver.page_source)
-    # tree = html.fromstring(driver.page_source)
-    # res = tree.xpath('/iframe[@id="g_iframe"]')
-    # print(res)
-    # for src in res:
-    #     print(src)
+    tree = html.fromstring(driver.page_source)
+    res = tree.xpath('//div[@class="g-bd"]//ul[@class="m-cvrlst f-cb"]//img/@src')
+    for src in res:
+        print(src)
 
 
 if __name__ == '__main__':
